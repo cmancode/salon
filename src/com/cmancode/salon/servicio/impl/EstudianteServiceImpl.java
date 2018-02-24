@@ -1,20 +1,30 @@
 package com.cmancode.salon.servicio.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.cmancode.salon.modelo.Estudiante;
 import com.cmancode.salon.servicio.IEstudianteService;
 
 public class EstudianteServiceImpl implements IEstudianteService {
+
+	private List<Estudiante> estudiantes;
 	
-	private String[][] sillas = new String[6][6];
+	//Constructor
+	public EstudianteServiceImpl() {
+		this.estudiantes = new ArrayList<Estudiante>();
+	}
 	
 	@Override
 	public void save(Estudiante e) {
-		this.sillas[e.getFila()][e.getColumna()] = e.getNombre();
+		estudiantes.add(e);
 	}
 
 	@Override
-	public String[][] estudiantes() {
-		return this.sillas;
+	public List<Estudiante> getEstudiantes() {
+		return this.estudiantes;
 	}
+
+
 
 }
